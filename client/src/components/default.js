@@ -1,6 +1,8 @@
 import React from 'react';
 import '../css/defaultpage.css' ;
-import icon from '../img/3.jpg'
+import icon from '../img/3.jpg';
+// import Login from './login' ;
+// import Register from './register' ;
 
 
 function Default() {
@@ -18,7 +20,7 @@ function Default() {
     <div className="default">
         <div className="registration-box">
         <div className="registration">
-
+            
             {/* <!-- Close button --> */}
             <button onClick={closeForm} className="form-close">X</button>
         </div>

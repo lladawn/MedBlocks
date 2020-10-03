@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+.top-section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    
+}
+.top-section::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../img/home-banner.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    
+    
+}
+
+
+
+/* Navigation */
+.navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* border: 2px solid white; */
+    background: rgba(0, 0, 0, 0.808);
+    width: 100%;
+    height: 65px;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+ 
+    z-index: 1;
+}
+
+.navbar button{
+    position: absolute;
+    right: 150px;
+    width: 158px;
+    height: 37px;
+    background: rgb(221, 40, 76);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+}
+.navbar button:hover{
+    background-color: #29aa1d;
+
+}
+.navbar .logo{
+    position: absolute;
+    left: 240px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: default;
+}
+.logo h2{
+    transition: all 0.5s ease-in-out;
+}
+.logo h1{
+    position: absolute;
+    font-size: 2.5rem;
+    top: -8px;
+    left: 38px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.logo:hover h1{
+    opacity: 1;
+}
+
+.logo:hover h2{
+    opacity: 0;
+}
+
+
+.navbar a{
+    position: relative;
+    margin: 0px 39px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.15rem;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.navbar a:hover{
+    color: rgb(228, 98, 124);
+}
+
+/* END - Navigation bar */
+
+
+/* Top Content */
+
+.top-content{
+    position: absolute;
+    top: 180px;
+    right: 70px;
+    width: 47%;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    height: 60%;
+    align-items: center;
+    letter-spacing: 1px;
+    /* border: 2px solid white;*/
+    
+}
+.top-content h2{
+    position: relative;
+    font-size: 2.5rem;
+    margin: 12px 0px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 0px 1px 3px;
+}
+
+
+.top-content p{
+    position: relative;
+    font-size: 1.2rem;
+    margin: 17px 0px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.2px;
+  
+}
+
+/* Button Styling */
+.top-content button{
+    position: relative;
+    top: 10px;
+    margin: 11px;
+    font-size: 1.2rem;
+    background: #e90a4d;
+    color: white;
+    border: none;
+    width: 175px;
+    border-radius: 7px;
+    height: 38px;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+
+
+  .btn-1:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #29aa1d;
+    border-radius: 5px;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    transition: all 0.5s ease;
+  }
+  .btn-1:hover {
+    color: #fff;
+  }
+  .btn-1:hover:after {
+    left: 0;
+    width: 100%;
+  }
+  .btn-1:active {
+    top: 2px;
+    
+  }
+
+/* END Top Content ################################################################################################*/
+
+/* Feature items #############################################################################################*/
+
+#features{
+    position: relative;
+    top: 100vh;
+    min-height: 100vh;
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+#features h1{
+    font-size: 3.2rem;
+    position: relative;
+    top: 36px;
+    text-shadow: 2px 1px 2px;
+
+}
+#features::before{
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 33%;
+    width: 34%;
+    height: 100px;
+    background: #828bf6ad;
+    transform: rotate3d(10, -5, 1, 45deg);
+    
+
+}
+
+
+.cont-ques{
+    color: white;
+    position: ABSOLUTE;
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+    font-size: 1.7rem;
+    text-shadow: 0px 0px 7px;
+    opacity: 1;
+    transition: all 0.4s ease-out;
+    
+}
+.feature-item{
+    width: 70%;
+    position: relative;
+    top: 75px;
+    left: 0;
+    height: 545px;
+    margin: 15px 20px;
+    /* border: 2px solid black; */
+    box-shadow: 0px 0px 7px 0px rgb(55, 55, 219);
+    animation: Ashadow 1.3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+    transition: all 0.4s ease-out;
+    border-radius: 10px;
+    background: linear-gradient(200deg,rgb(240, 61, 61),rgb(71, 71, 221)) ;
+      
+}
+
+.feature-item::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.925);
+    z-index: 1; 
+    transition: all 0.4s ease-out;
+    border-radius: 10px;
+     
+}
+.feature-item:hover::before{
+    z-index: 0;
+    background: rgba(0, 0, 0, 0);
+}
+
+.feature-item:hover{
+    transform: scale(1.07);
+    background: linear-gradient(200deg,rgb(240, 61, 61),rgb(71, 71, 221)) ;
+    color: white;
+}
+.feature-item:hover .cont-ques{
+    opacity: 0;
+}
+
+
+
+
+ @keyframes Ashadow{
+     0%,100%{
+         box-shadow:0px 0px 7px 0px rgb(55, 55, 219) ;
+    }
+    50%{
+          box-shadow:0px 0px 14px 0px rgb(55, 55, 219);
+    }
+ }
+
+
+
+
+.feature-item img{
+    width: 500px;
+    position:relative;
+    clip-path: inset(10% 24% 10% 24%);
+    
+    /* transition: all 0.4s ease-in-out; */
+    top: 0px;
+    
+}
+
+.content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+}
+.content h2{
+    font-size: 2rem;
+    position: relative;
+    bottom: 45px;
+    text-align: center;
+    
+}
+.content p{
+    font-size: 1.4rem;
+    position: relative;
+    top: 15px;
+    text-align: center;
+}
+
+
+/* Feature Items End ###########################################################################################################3 */
+
+/* Login / Signup ##################################################################################################################### */
+
+.registration-box{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: #000000c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.registration{
+    width: 35%;
+    height: 80%;
+    min-width: 405px;
+    background: white;
+    box-shadow: inset 0px 0px 15px 0px;
+}
+
+
+
+.form-close{
+    position: relative;
+    left: 105%;
+    top: -20px;
+    height: 42px;
+    border-radius: 30px;
+    width: 42px;
+    font-weight: bolder;
+    cursor: pointer;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Login / Signup End ##################################################################################################################### */
+/* Contact And about ########################################################################################################## */
+
+#contact{
+    width: 100%;
+    height: 440px;
+    background: #0c104d;
+    position: relative;
+    top: 115vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contact And about END ########################################################################################################## */

@@ -7,7 +7,7 @@ import fig2 from '../img/fig2.png';
 import useremail from '../img/user-email.png';
 import userlogo from '../img/user-logo.png';
 import f1ques from '../img/f1-ques.jpg';
-
+import Modal from './Modal';
 
 
 function Default() {
@@ -24,7 +24,7 @@ function Default() {
     }
 
     return (
-        <div className="default">
+            <div className="default">
             <div className="container">
 
                 {/* <!-- ##################### NAVBAR ################################## --> */}
@@ -36,7 +36,8 @@ function Default() {
                     <a href="#home">Home</a>
                     <a href="#features">Features</a>
                     <a href="#contact">Contact Us</a>
-                    <button>Enter Vault</button>
+               
+                    <Modal value="Sign In" />
                 </nav>
                 {/* <!-- ##################### NAVBAR END ################################## --> */}
 
@@ -47,8 +48,9 @@ function Default() {
                         <h1>Control Your Health Records</h1>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda unde ad rerum doloribus nisi quam
                         quos esse, fugit tempore nemo facilis nobis? Qui illum, deserunt assumenda saepe rerum reiciendis
-            explicabo ducimus modi, ea quidem libero hic dolorem magni repudiandae. Impedit.</p>
-                        <button className="btn-1">Login Now</button>
+                        explicabo ducimus modi, ea quidem libero hic dolorem magni repudiandae. Impedit.</p>
+                        
+                        <Modal value="Get Started" />
                     </div>
                     <img src={homebanner} alt="Home banner" />
 

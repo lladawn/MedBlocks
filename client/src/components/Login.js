@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, Label, Input, Modal } from 'semantic-ui-react';
 import web3 from "../ethereum/web3";
 import medBlocks from '../ethereum/medBlocks';
+import Main from './patient/main.js';
 
 class Login extends Component {
   state = {
@@ -28,7 +29,9 @@ class Login extends Component {
     const { username, aadharNumber, passCode } = this.state;
     const accounts = await web3.eth.getAccounts();
     console.log(" Only Patient");
-    await medBlocks.methods.AddNewPatient(username, aadharNumber, passCode).send({from: accounts[0]});  
+    await medBlocks.methods.AddNewPatient(username, aadharNumber, passCode).send({from: accounts[0]});
+    /*<Main /> */
+
   };
 
   handleOpen = () => {

@@ -8,7 +8,6 @@ import Doctor from './doctors';
 
 function Main() {
   return (
-    <>
     <Router>
     <div className="home_page">
     <Navbar/>
@@ -19,7 +18,6 @@ function Main() {
     </Switch>
     </div> 
    </Router>
-   </>
   );
 }
 

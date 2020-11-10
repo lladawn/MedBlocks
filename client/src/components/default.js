@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/defaultpage.css';
+import './css/defaultpage.css';
 import homebanner from '../img/home-banner.png';
 import f1main from '../img/f1-main.png';
 import fig1 from '../img/fig1.png';

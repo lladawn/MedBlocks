@@ -142,7 +142,7 @@ html{
 
 .section-first::before{
     content: '';
-    background: url(../img/home-back.jpg) no-repeat center center/cover;
+    /*background: url('.../img/home-back.jpg') no-repeat center center/cover;*/
     background-attachment: fixed;
     position: absolute;
     top: 0;
@@ -460,7 +460,7 @@ html{
 
 #contact::before{
     content: '';
-    background: url(../img/contact-back.jpg) no-repeat center center/cover;
+    /*background: url('.../img/contact-back.jpg') no-repeat center center/cover;*/
     background-attachment: fixed;
     position: absolute;
     top: 0;

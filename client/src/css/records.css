@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+.records{
+	padding-left:250px;
+	
+	margin: 0;
+	display: block;
+
+}
+
+.major {
+	font-family: 'Lato', sans-serif;
+	font-size: 15;
+	background-color: red;
+}
+
+
+
+.disease{
+  
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}

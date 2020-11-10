@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+.home_content{
+	padding: 20px;
+	margin:0px;
+	background-color: grey;
+	display: flex;
+	width: 90%;
+	height: 98%;
+	right: 50%;
+
+	}
+*{
+	font-family: 'Lato', sans-serif;
+	}
+
+.home_content.right{
+	display: inline-block;
+}
+
+.personal_info {
+	font-size: 15px;
+	margin-right: 20px;
+	border-radius: 10px;
+	width: 70%;
+	height: 80%;
+	
+}
+.medical{
+	margin-bottom: 10px;
+	width : 60%;
+	height: 30%;
+	font-size: 15px;
+	background-color: white;
+	padding-left: 10px;
+	padding-top: 10px;
+	border-radius: 10px;
+}
+.medical.body{
+	
+	height: 60%;
+}
+
+.Other_info {
+	font-size: 10px;
+	width : 50%;
+	height: 60%;
+}
+
+.home{
+	padding-left:250px;
+	margin: 0;
+}
+
+.info{
+	height: 20%;
+	background-color: white;
+	border-bottom: solid 1px grey;
+	padding-left: 10px;
+	padding-top: 10%;
+	/*border-radius: 10px;*/
+}
+.other{
+	height: 20%;
+	background-color: white;
+	border-bottom: solid 1px grey;
+	padding-left: 10px;
+	padding-top: 10%;
+	font-size: 15px;
+}
+
+.heading {
+	height: 10%;
+	padding-top: 2%;
+	font-size: 18px
+}
+
+.other.heading {
+	height: 10%;
+	padding-top: 2%;
+}
+
+.medical.heading{
+	border-bottom: solid 1px grey;
+	height: 20%;
+	padding-top: 2%;
+
+	
+}
+

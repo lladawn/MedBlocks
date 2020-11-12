@@ -10,6 +10,11 @@
 body{
     background-color: black;
 }
+
+.font-color{
+    color: white;
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -20,8 +25,6 @@ html{
     left: 0;
     width: 100vw;
     height: 500vh;
-    
-    
 }
 
 
@@ -30,24 +33,37 @@ html{
     width: 0;
 }
 
+/* Add Record Form */
+.record {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+ 
+.break{
+    height: 50px;
+}
+
 /* Navigation */
-.navbar{
+.navbar-default {
     position: fixed;
     top: 0;
     left: 0;
     /* border: 2px solid white; */
     background: rgba(0, 0, 0, 0.438);
+    /* background: rgb(151, 220, 238); */
     width: 100vw;
     height: 65px;
     display: flex;
     color: white;
     align-items: center;
-    justify-content: center;
-
+    /* justify-content: center; */
+    justify-content: space-around;
     z-index: 4;
 }
 
-.navbar button{
+.navbar-default button{
     position: absolute;
     right: 165px;
     width: 158px;
@@ -61,27 +77,45 @@ html{
     transition: all 0.2s ease-in-out;
 
 }
-.navbar button:hover{
+.navbar-default button:hover{
     background-color: #29aa1d;
 
 }
-.navbar button:focus{
+.navbar-default button:focus{
     border: none;
     outline: none;
     
 
 }
-.navbar button:active{
+.navbar-default button:active{
     background-color: #208817;
 }
 
-.navbar .logo{
+.navbar-default .logo{
     position: absolute;
     left: 220px;
     color: white;
     font-size: 0.9rem;
     cursor: default;
 }
+
+.nav-links {
+    width: 80%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    list-style: none;
+}
+
+.app-logo{
+    position: relative;
+    display: flex;
+}
+
+.app-logo img{
+    max-width: 25%;
+}
+
 .logo h2{
     font-size: 1.7rem;
     position: relative;
@@ -107,7 +141,7 @@ html{
 }
 
 
-.navbar a{
+.navbar-default a{
     position: relative;
     margin: 0px 39px;
     text-decoration: none;
@@ -117,7 +151,7 @@ html{
 
 }
 
-.navbar a:hover{
+.navbar-default a:hover{
     color: rgb(228, 98, 124);
 }
 
@@ -142,7 +176,7 @@ html{
 
 .section-first::before{
     content: '';
-    background: url(../img/home-back.jpg) no-repeat center center/cover;
+    background: url(../img/home-back4.jpg) no-repeat center center/cover;
     background-attachment: fixed;
     position: absolute;
     top: 0;
@@ -460,7 +494,7 @@ html{
 
 #contact::before{
     content: '';
-    background: url(../img/contact-back.jpg) no-repeat center center/cover;
+    background: url(../img/contact-back4.jpg) no-repeat center center/cover;
     background-attachment: fixed;
     position: absolute;
     top: 0;
@@ -486,7 +520,7 @@ html{
     color: white;
     font-size: 4rem;
     letter-spacing: 4px;
-    text-shadow: 0px 0px 7px white;
+    /* text-shadow: 0px 0px 7px rgb(107, 104, 104); */
 
 }
 #contact form{
@@ -508,7 +542,7 @@ html{
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    box-shadow: 5px 4px 0px 0px #c7c7c7;
+    /* box-shadow: 5px 4px 0px 0px #c7c7c7; */
 
 
 }
@@ -546,7 +580,7 @@ html{
     color: #4e4e4e;
     padding: 15px;
     border-radius: 4px;
-    box-shadow: 5px 4px 0px 0px #c7c7c7;
+    /* box-shadow: 5px 4px 0px 0px #c7c7c7; */
     resize: none;
 
 }

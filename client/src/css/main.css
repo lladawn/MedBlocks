@@ -7,8 +7,6 @@
 	font-family: 'Lato', sans-serif;
 }
 
-
-
 .App {
   text-align: center;
 }
@@ -37,7 +35,7 @@
 }
 
 .navbar {
-	background-color: #060b26;
+	background: #012a4a;
 	height: 80px;
 	display: flex;
 	justify-content: start;
@@ -50,6 +48,7 @@
 	align-items: center;
 	justify-content: center;
 }
+
 
 /*.content {
 	top:100;

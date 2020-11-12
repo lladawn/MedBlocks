@@ -8,7 +8,7 @@ import useremail from '../img/user-email.png';
 import userlogo from '../img/user-logo.png';
 import f1ques from '../img/f1-ques.jpg';
 import Modal from './Modal';
-
+import Nav from './Nav';
 
 function Default() {
 
@@ -28,7 +28,8 @@ function Default() {
             <div className="container">
 
                 {/* <!-- ##################### NAVBAR ################################## --> */}
-                <nav className="navbar">
+                <Nav/>
+                {/* <nav className="navbar">
                     <div className="logo">
                         <h2>MedBlocks</h2>
                         <h1>MB</h1>
@@ -38,7 +39,7 @@ function Default() {
                     <a href="#contact">Contact Us</a>
                
                     <Modal value="Sign In" />
-                </nav>
+                </nav> */}
                 {/* <!-- ##################### NAVBAR END ################################## --> */}
 
 

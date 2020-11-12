@@ -1,34 +1,41 @@
 import React, { Component } from "react";
-import { Form, Button, Label, Input, Modal } from 'semantic-ui-react';
+import { Form, Button, Label, Input, Modal, Radio } from 'semantic-ui-react';
 import web3 from "../ethereum/web3";
 import medBlocks from '../ethereum/medBlocks';
 
 class Login extends Component {
-  state = {
-    username: "",
-    aadharNumber: "",
-    passCode: "",
-    modalOpen: false
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      username: "Sam",
+      sex: "",
+      aadharNumber: 112233,
+      age: 18,
+      bmi: "",
+      bloodGroup: "",
+      passCode: 123,
+      modalOpen: false
+    };
+  }
 
   handleDoctor = async (event) => {
     event.preventDefault();
     // whatever you want to do when user submits a form
-    const { username, aadharNumber, passCode } = this.state;
+    const { username, sex, aadharNumber, age, bmi, bloodGroup, passCode } = this.state;
     const accounts = await web3.eth.getAccounts();
     console.log("Patient");
-    await medBlocks.methods.AddNewPatient(username, aadharNumber, passCode).send({from: accounts[0]});
+    await medBlocks.methods.AddNewPatient(username, sex, aadharNumber, age, bmi, bloodGroup, passCode).send({from: accounts[0]});
     console.log("Doctor");
-    await medBlocks.methods.AddNewDoctor(username, aadharNumber, passCode).send({from: accounts[0]});
+    await medBlocks.methods.AddNewDoctor(username, sex, aadharNumber, age, bmi, bloodGroup, passCode).send({from: accounts[0]});
   };
 
   handlePatient = async (event) => {
     event.preventDefault();
     // whatever you want to do when user submits a form
-    const { username, aadharNumber, passCode } = this.state;
+    const { username, sex, aadharNumber, age, bmi, bloodGroup, passCode } = this.state;
     const accounts = await web3.eth.getAccounts();
     console.log(" Only Patient");
-    await medBlocks.methods.AddNewPatient(username, aadharNumber, passCode).send({from: accounts[0]});  
+    await medBlocks.methods.AddNewPatient(username, sex, aadharNumber, age, bmi, bloodGroup, passCode).send({from: accounts[0]});  
   };
 
   handleOpen = () => {
@@ -40,7 +47,7 @@ class Login extends Component {
   }
 
   render() {
-    const { username, aadharNumber, passCode } = this.state;
+    const { username, sex, aadharNumber, age, bmi, bloodGroup, passCode } = this.state;
 
     return (
           <div>
@@ -53,6 +60,36 @@ class Login extends Component {
               onChange={ event => {this.setState({ username: event.target.value})}}
               ></Input>             
             <br />
+            
+            <Label style={{marginTop: '20px'}}>Gender</Label>
+            <br />
+            <div style={{padding: '5px'}}></div>
+            <div style={{display: 'flex'}}>
+              <Radio
+                label='Female'
+                name='radioGroup'
+                value='Female'
+                checked={sex === 'Female'}
+                onChange={(e, { value }) => {this.setState({sex: value})}}
+              />
+              <div style={{padding: '10px'}}></div>
+              <Radio
+                label='Male'
+                name='radioGroup'
+                value='Male'
+                checked={sex === 'Male'}
+                onChange={(e, { value }) => {this.setState({sex: value})}}
+              />
+              <div style={{padding: '10px'}}></div>
+              <Radio
+                label='Other'
+                name='radioGroup'
+                value='Other'
+                checked={sex === 'Other'}
+                onChange={(e, { value }) => {this.setState({sex: value})}}
+              />
+            </div>
+            
             <Label style={{marginTop: '20px'}} htmlFor="Aadhar Card Number">Aadhar Card Number</Label>
             <br />
             <Input
@@ -61,6 +98,37 @@ class Login extends Component {
               onChange={ event => {this.setState({ aadharNumber: event.target.value })}}
               ></Input>
             <br />
+            <Label style={{marginTop: '20px'}} >Age</Label>
+            <br/>
+            <Input
+              placeholder="Age"
+              value={age}
+              onChange={ event => {this.setState({age: event.target.value})}}
+            />
+            <br/>
+            <Label style={{marginTop: '20px'}} >BMI</Label>
+            <br/>
+            <Input
+              placeholder="BMI"
+              value={bmi}
+              onChange={ event => {this.setState({bmi: event.target.value})}}
+            />
+            <br/>
+            <Label style={{marginTop: '20px'}}>Blood Group</Label>
+            <br/>
+            {/* <Dropdown
+              placeholder="Select"
+              fluid
+              selection
+              options={bloodGroupoptions}
+              onChange = { event => {this.setState({bloodGroup: event.target.value})}}
+            /> */}
+            <Input 
+              placeholder="Blood Group"
+              value={bloodGroup}
+              onChange={event => {this.setState({bloodGroup: event.target.value})}}
+            />
+            <br/>
             <Label style={{marginTop: '20px'}} htmlFor="username">Pass Code</Label>
             <br />
             <Input

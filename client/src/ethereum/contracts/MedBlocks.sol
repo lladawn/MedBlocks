@@ -18,6 +18,10 @@ contract MedBlocks{
     bytes32 patientId;
     string patientFullName;
     uint aadharCardNumber;
+    uint age;
+    uint bmi;
+    string bloodGroup;
+    string sex;
     bool IsPatient;
     uint passCode;
     mapping(address => bool) IsDelegatedPatient;
@@ -31,6 +35,10 @@ contract MedBlocks{
     bytes32 doctorId;
     string doctorFullName;
     uint aadharCardNumber;
+     uint age;
+    uint bmi;
+    string bloodGroup;
+    string sex;
     bool IsDoctor;
     uint passCode;
     mapping(address => bool) IsDelegatedPatient;
@@ -75,11 +83,21 @@ contract MedBlocks{
     return patientAddressArray;
   }
 
-  function getPatientInfo(address _address) public view returns(bytes32,string,uint,bool,uint,bool,uint) {
+  function getPatientInfo1(address _address) public view returns(bytes32,string,uint,uint,uint,string,string) {
     return(
       patientList[_address].patientId,
       patientList[_address].patientFullName,
       patientList[_address].aadharCardNumber,
+      patientList[_address].age,
+      patientList[_address].bmi,
+      patientList[_address].sex,
+      patientList[_address].bloodGroup
+      
+    );
+  }
+
+  function getPatientInfo2(address _address) public view returns(bool,uint,bool,uint) {
+    return(
       patientList[_address].IsPatient,
       patientList[_address].passCode,
       //returns if the caller of the function has the right to access the patient's info
@@ -125,26 +143,34 @@ contract MedBlocks{
     return patientList[_patientAddress].meetingIdArray;
   }
 
-  function AddNewPatient(string memory _name,uint _aadhar,uint _code) public returns(string memory) {
+  function AddNewPatient(string memory _name,string memory _sex,uint _aadhar,uint _age, uint _bmi,string memory _bloodGroup,uint _code) public {
     require(!patientList[msg.sender].IsPatient);
     patientList[msg.sender].IsPatient = true;
     patientList[msg.sender].patientFullName = _name;
     patientList[msg.sender].aadharCardNumber = _aadhar;
+    patientList[msg.sender].sex = _sex;
+    patientList[msg.sender].age = _age;
+    patientList[msg.sender].bmi = _bmi;
+    patientList[msg.sender].bloodGroup = _bloodGroup;
     patientList[msg.sender].passCode = _code;
     patientList[msg.sender].patientId = bytes32(keccak256(abi.encodePacked(msg.sender,now)));
     patientAddressArray.push(msg.sender);
-    return "New Patient Created";
+    // return "New Patient Created";
   }
 
-  function AddNewDoctor(string memory _name, uint _aadhar, uint _code) public returns(string memory) {
+  function AddNewDoctor(string memory _name, string memory _sex, uint _aadhar, uint _age, uint _bmi, string memory _bloodGroup, uint _code) public {
     require(!doctorList[msg.sender].IsDoctor);
     doctorList[msg.sender].IsDoctor = true;
     doctorList[msg.sender].doctorFullName = _name;
     doctorList[msg.sender].aadharCardNumber = _aadhar;
+    doctorList[msg.sender].sex = _sex;
+    doctorList[msg.sender].age = _age;
+    doctorList[msg.sender].bmi = _bmi;
+    doctorList[msg.sender].bloodGroup = _bloodGroup;
     doctorList[msg.sender].passCode = _code;
     doctorList[msg.sender].doctorId = bytes32(keccak256(abi.encodePacked(msg.sender,now)));
     doctorAddressArray.push(msg.sender);
-    return "New Doctor Created";
+    // return "New Doctor Created";
   }
 
   //this function is to give access to the doctor

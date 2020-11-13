@@ -22,7 +22,7 @@ class Home extends Component{
 		this.setState({id:details[0], name: details[1], age:details[3], bmi:details[4], sex:details[5], bloodGroup:details[6]})
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.patientInfo();
 	}
 

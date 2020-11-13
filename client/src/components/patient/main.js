@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './home';
 import Record from './records';
 import Doctor from './doctors';
+import Default from '../default';
 
 function Main() {
   return (

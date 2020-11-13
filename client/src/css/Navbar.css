@@ -1,9 +1,13 @@
 
+.logo {
+	color: #a9d6e5;
+	padding: 40px 0px 30px 40px;
+}
 
 .menu-bars {
 	margin-left: 2rem;
 	font-size: 2rem;
-	background-color: none;
+	background-color: black;
 }
 
 .nav-menu {
@@ -25,6 +29,7 @@
 	left: 0;
 	transition: 350ms;
 	position: fixed;
+	background-color: #012a4a;
 }
 
 .nav-text{
@@ -39,7 +44,7 @@
 .nav-text a{
 	text-decoration: none;
 	color: #f5f5f5;
-	font-size: 18px;
+	font-size: 20px;
 	width: 95%;
 	height: 100%;
 	display: flex;
@@ -73,5 +78,4 @@ span {
 .cube {
 	right: 50%;
 	bottom: -50%;
-
 }

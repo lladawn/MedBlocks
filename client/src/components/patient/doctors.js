@@ -4,6 +4,7 @@ import user from '../../img/user-logo.png';
 import { Link } from 'react-router-dom';
 import medBlocks from '../../ethereum/medBlocks';
 import web3 from '../../ethereum/web3';
+import SearchBar from '../SearchBar';
 
 class DoctorList extends Component{
 	constructor(props){
@@ -48,7 +49,10 @@ class DoctorList extends Component{
 
 		return (
 			<div className = 'records'>
-				<h2 style={{color: '#012a4a'}}>Doctors list</h2>
+				<div style={{padding: '0px 80px 10px 80px'}}>
+					<SearchBar category="Doctor" />
+				</div>
+				<h2 style={{color: '#012a4a', paddingBottom: '20px'}}>Doctors list</h2>
 				{this.renderList()}
 			</div>
 		);

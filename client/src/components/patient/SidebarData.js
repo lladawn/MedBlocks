@@ -3,6 +3,8 @@ import * as FaIcons from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import web3 from '../../ethereum/web3';
+import medBlocks from '../../ethereum/medBlocks';
 
 export const SideBarData = [
 {

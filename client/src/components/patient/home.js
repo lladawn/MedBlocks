@@ -12,18 +12,24 @@ class Home extends Component{
 			age: "",
 			bmi: "",
 			bloodGroup: "",
-			sex: ""
+			sex: "",
 		};
 	}
 
-	patientInfo = async () => {
-		const accounts = await web3.eth.getAccounts();
-		const details = await medBlocks.methods.getPatientInfo1(accounts[0]).call();
-		this.setState({id:details[0], name: details[1], age:details[3], bmi:details[4], sex:details[5], bloodGroup:details[6]})
+	
+	patientInfo = async (address) => {
+		try{
+			const details = await medBlocks.methods.getPatientInfo1(address).call();
+			this.setState({id:details[0], name: details[1], age:details[3], bmi:details[4], sex:details[5], bloodGroup:details[6]})
+		}catch(err){
+			alert('To go to your Profile -> Press OK \n ______________________________________________________ \n Cautions: If profile not loaded please reload!')
+			alert('Welcome user!')
+		}
 	}
 
 	componentDidMount() {
-		this.patientInfo();
+		console.log(this.props.address)
+		this.patientInfo(this.props.address);
 	}
 
 	render(){
@@ -33,7 +39,7 @@ class Home extends Component{
 			<div className ="home" display = "flex">
 				<div className = "home_content left" >
 				<div className = "personal_info">
-					<div className = "info heading"><b>Personal Information</b></div>
+					<div className = "info heading"><b>Profile</b></div>
 					{/* id */}
 					<div className = "info name"><strong>Name :</strong>{name}<br/></div>
 					<div className = "info age"><b>Age :</b>{age}<br/></div>

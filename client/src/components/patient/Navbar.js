@@ -2,14 +2,25 @@ import React , {useState} from 'react';
 // import * as FaIcons from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 // import * as AiIcons from 'react-icons/ai';
-import { SideBarData} from './SidebarData.js';
+import * as AiIcons from 'react-icons/ai';
+import { SideBarData } from './SidebarData.js';
 import '../../css/Navbar.css';
 import {IconContext} from 'react-icons';
 
-function Navbar() {
+const Navbar = ({IsDoctor}) => {
 	const [sidebar, setSidebar] = useState(true);
-
 	const showSidebar = () => setSidebar(sidebar);
+
+	const mypatients = {
+		title: 'My Patients',
+		path: '/loggedIn/my_patients',
+		icon : <AiIcons.AiFillHome/>,
+		cName: 'nav-text'
+	}
+	if(IsDoctor && SideBarData.length < 4){
+		SideBarData.push(mypatients);
+	}
+
 	return (
 		<IconContext.Provider value = {{color: '#fff'}} >
 			<div className='navbar'>
@@ -18,7 +29,7 @@ function Navbar() {
 				</Link> */}
 			</div>	
 			<nav className = {sidebar ? 'nav-menu active': 'nav-menu'}>
-				<ul className = 'nav-menu-items' onClick = {showSidebar}>
+				<ul className = 'nav-menu-items' >
 					<li className= 'navbar-toggle'>
 						<Link to="/">
 							<h1 className="logo">MedBlocks</h1>

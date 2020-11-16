@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React from 'react';
 // import * as FaIcons from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 // import * as AiIcons from 'react-icons/ai';
@@ -8,8 +8,9 @@ import '../../css/Navbar.css';
 import {IconContext} from 'react-icons';
 
 const Navbar = ({IsDoctor}) => {
-	const [sidebar, setSidebar] = useState(true);
-	const showSidebar = () => setSidebar(sidebar);
+	// const [sidebar, setSidebar] = useState(true);
+	// const showSidebar = () => setSidebar(sidebar);
+	const sidebar = true;
 
 	const mypatients = {
 		title: 'My Patients',

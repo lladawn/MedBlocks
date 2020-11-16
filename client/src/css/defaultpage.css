@@ -11,9 +11,6 @@ body{
     background-color: #468faf;
 }
 
-.font-color{
-    color: white;
-}
 
 html{
     scroll-behavior: smooth;
@@ -35,10 +32,8 @@ html{
 
 /* Add Record Form */
 .record {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    padding-left: 500px;
+    padding-right: 250px;
 }
  
 .break{

@@ -3,7 +3,7 @@ import { Card, Image } from 'semantic-ui-react';
 import user from '../../img/user-logo.png';
 import { Link } from 'react-router-dom';
 import medBlocks from '../../ethereum/medBlocks';
-import web3 from '../../ethereum/web3';
+// import web3 from '../../ethereum/web3';
 import SearchBar from '../SearchBar';
 
 class DoctorList extends Component{
@@ -16,7 +16,7 @@ class DoctorList extends Component{
 
 	doctorList = async () => {
         const doctorList = await medBlocks.methods.getDoctorAddressArray().call();
-		const len = doctorList.length;
+		// const len = doctorList.length;
 		this.setState({doctorList});
 	}
 	
@@ -39,16 +39,16 @@ class DoctorList extends Component{
 					</Link>
 				),
 				fluid: true,
-				image: <Image src={user} style={{width: '100px'}} size='small' disabled/>
+				image: <Image src={user} style={{width: '100px'}} size='tiny' />
 			};
 		});
 		return <Card.Group items={items} />
 	}
 	render(){
-		const { name } = this.state;
+		// const { name } = this.state;
 
 		return (
-			<div className = 'records'>
+			<div className = 'records' style={{paddingLeft: "400px", paddingRight: "150px"}}>
 				<div style={{padding: '0px 80px 10px 80px'}}>
 					<SearchBar category="Doctor" />
 				</div>

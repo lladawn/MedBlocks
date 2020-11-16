@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import web3 from '../../ethereum/web3';
+// import web3 from '../../ethereum/web3';
 import medBlocks from '../../ethereum/medBlocks';
 import '../../css/home.css';
 

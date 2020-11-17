@@ -8,7 +8,7 @@ class DoctorDetails extends Component{
     constructor(props){
         super(props);
         this.state = {
-            // doctoraddress: "",
+            doctoraddress: "",
             IsDelegatePatient: "",
             passcode: ""
         }
@@ -19,18 +19,23 @@ class DoctorDetails extends Component{
         const accounts = await web3.eth.getAccounts();
         const doctorDetails = await medBlocks.methods.getDoctorList(doctoraddress,accounts[0]).call();
         const patientDetails = await medBlocks.methods.getPatientInfo2(accounts[0]).call();
-        this.setState({IsDelegatePatient: doctorDetails[3], passcode: patientDetails[1]});
+        this.setState({IsDelegatePatient: doctorDetails[3], passcode: patientDetails[1], doctoraddress});
     }
 
     onDelegate = async (event) => {
-        const doctoraddress = this.props.match.params.id;
+        event.preventDefault();
+        // const doctoraddress = this.props.match.params.id;
         const accounts = await web3.eth.getAccounts();
-        await medBlocks.methods.delegatePatient(doctoraddress, this.state.passcode).send({from: accounts[0]});
+        await medBlocks.methods.delegatePatient(this.state.doctoraddress, this.state.passcode).send({from: accounts[0]});
         alert('You have given access to your medical records to the doctor')
     }
 
     onRevoke = async (event) => {
-
+        event.preventDefault();
+        // const doctoraddress = this.props.match.params.id;
+        const accounts = await web3.eth.getAccounts();
+        await medBlocks.methods.RevokeDelegatePatient(this.state.doctoraddress, this.state.passcode).send({from: accounts[0]});
+        alert('Access to your medical records has been revoked from the doctor successfully!')
     }
 
     renderButton = () => {

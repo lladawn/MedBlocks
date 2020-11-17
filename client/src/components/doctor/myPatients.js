@@ -3,7 +3,7 @@ import web3 from '../../ethereum/web3';
 import medBlocks from '../../ethereum/medBlocks';
 import { Card, Image } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
-import user from '../../img/user-logo.png';
+import patientLogo from '../../img/patient-logo.jpg';
 import SearchBar from '../SearchBar';
 
 class MyPatients extends Component{
@@ -13,8 +13,8 @@ class MyPatients extends Component{
             patientAddressArray: [],
             len: "",
             doctoraddress: "",
-            myPatientsArray: [] //store bool
-
+            myPatientsArray: [], //store bool
+            patientObjectArray: []
         }
     }
     Patients = async () => {
@@ -22,10 +22,17 @@ class MyPatients extends Component{
         let myPatientsArray = [];
         const patientAddressArray = await medBlocks.methods.getPatientAddressArray().call();
         const len = patientAddressArray.length;
+        let patientObjectArray = [];
         for(let i=0;i<len;i++){
             try{
                 let isDelegate = await medBlocks.methods.PatientIsDelegate(accounts[0],patientAddressArray[i]).call();
                 myPatientsArray.push(isDelegate);
+                const details = await medBlocks.methods.getPatientInfo1(patientAddressArray[i]).call();
+                patientObjectArray.push({
+                    id: details[0],
+                    name: details[1],
+                    address: patientAddressArray[i]
+                })
             }catch(err){
                 alert('Error Occured!')
             }
@@ -35,7 +42,8 @@ class MyPatients extends Component{
             patientAddressArray,
             len,
             doctoraddress: accounts[0],
-            myPatientsArray
+            myPatientsArray,
+            patientObjectArray
         });
     }
 
@@ -45,16 +53,21 @@ class MyPatients extends Component{
 
     renderList(){
         let c = 0;
-        const items = this.state.patientAddressArray.map( address => {
+        const items = this.state.patientObjectArray.map( patient => {
             if(this.state.myPatientsArray[c++]){
                 return{
-                    header: address,
-                    description: (<Link to={`/loggedIn/my_patients/${address}/patientDetails`}>View Patient details</Link>),
-                    fluid: true,
-                    image: <Image src={user} style={{width: '100px'}} size="tiny" />
+                    header: patient.name,
+                    // meta: patient.id,
+                    description: (<Link to={`/loggedIn/my_patients/${patient.address}/patientDetails`}>View Patient details</Link>),
+                    // fluid: true,
+                    image: <Image src={patientLogo} style={{width: '500px'}} size="small" />,
+                    style: {overflowWrap: 'break-word'}
                 }
             } else{
-                return "";
+                return {
+                    header: "Not patient",
+                    meta: "Bug will be fixed soon!"
+                }
             }
         });
         return <Card.Group items={items} />

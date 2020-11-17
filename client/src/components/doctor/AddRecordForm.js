@@ -53,7 +53,7 @@ class AddRecord extends Component {
         event.preventDefault();
         try{
             const accounts = await web3.eth.getAccounts();
-            alert(`Adding a record to ${accounts[0]}`)
+            alert(`Adding a record to ${this.props.match.params.id}`)
             await medBlocks.methods.AddPatientMeetingInfo(
                 this.state.address,
                 this.state.diseases,

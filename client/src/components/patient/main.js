@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './home';
-import Record from './records';
+import Record from './myRecords';
 import Doctor from './doctors';
 import DoctorDetails from '../doctor/doctorDetails';
 import web3 from '../../ethereum/web3';
@@ -11,6 +11,7 @@ import medBlocks from '../../ethereum/medBlocks';
 import MyPatients from '../doctor/myPatients';
 import PatientDetails from '../doctor/patientDetails';
 import AddRecord from '../doctor/AddRecordForm';
+import PatientRecord from './patientRecords';
 
 class Main extends Component {
   state = {
@@ -36,12 +37,14 @@ class Main extends Component {
         <Switch>
         <Route path = '/loggedIn' exact component = { () => <Home address={this.state.address} /> } />
         {/* <Route path = '/loggedIn' exact render = {(props) => ( <Home {...props} address={this.state.address} /> )} /> */}
-        <Route path = '/loggedIn/records' component = {Record} />
+        {/* <Route path = '/loggedIn/records' exact component = {Record} /> */}
+        <Route path = '/loggedIn/records' component = { () => <Record patientAddress={this.state.address} /> } />
         <Route path = '/loggedIn/doctors' exact component = {Doctor} />
         <Route path = "/loggedIn/doctors/:id/doctorDetails" component={DoctorDetails} />
         <Route path = "/loggedIn/my_patients" exact component={MyPatients} />
         <Route path = "/loggedIn/my_patients/:id/patientDetails" exact component = {PatientDetails} />
         <Route path = "/loggedIn/my_patients/:id/patientDetails/addRecord" component = {AddRecord} />
+        <Route path = "/loggedIn/my_patients/:id/patientDetails/records" component = {PatientRecord} />
         </Switch>
       </div> 
      </Router>

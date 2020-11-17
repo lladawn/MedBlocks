@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react';
-import user from '../../img/user-logo.png';
+import doctorLogo from '../../img/doctor-logo.png';
 import { Link } from 'react-router-dom';
 import medBlocks from '../../ethereum/medBlocks';
-// import web3 from '../../ethereum/web3';
 import SearchBar from '../SearchBar';
+import web3 from '../../ethereum/web3';
 
 class DoctorList extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			doctorList: []
+			doctorAddressArray: [],
+			doctorArray: []
 		};
 	}
 
 	doctorList = async () => {
-        const doctorList = await medBlocks.methods.getDoctorAddressArray().call();
-		// const len = doctorList.length;
-		this.setState({doctorList});
+		const accounts = await web3.eth.getAccounts();
+        const doctorAddressArray = await medBlocks.methods.getDoctorAddressArray().call();
+		const count = doctorAddressArray.length;
+		let doctorArray = [];
+		for(let i=0;i<count;i++){
+			const details = await medBlocks.methods.getDoctorList(doctorAddressArray[i],accounts[0]).call();
+			doctorArray.push({
+				name: details[1],
+				id: details[0],
+				address: doctorAddressArray[i]
+			})
+		}
+		this.setState({doctorAddressArray, doctorArray});
 	}
 	
     componentDidMount(){
@@ -25,35 +36,32 @@ class DoctorList extends Component{
 	}
 	
 	renderList = () => {
-		// const accounts = await web3.eth.getAccounts();
-		const items = this.state.doctorList.map(address => {
-			// const details = await medBlocks.methods.getDoctorList(address,accounts[0]).call();
-			// this.setState({name: details[1], id: details[0]});
+		const items = this.state.doctorArray.map(doctor => {
 			return {
-				// header: this.state.name,
-				header: address,
+				header: doctor.name,
+				// meta: doctor.id,
 				description: (
-					<Link to={`/loggedIn/doctors/${address}/doctorDetails`}>
-						{/* <span>{this.state.id}</span> */}
+					<Link to={`/loggedIn/doctors/${doctor.address}/doctorDetails`}>
 						<a>View Doctor Detail</a>
 					</Link>
 				),
-				fluid: true,
-				image: <Image src={user} style={{width: '100px'}} size='tiny' />
+				// fluid: true,
+				image: <Image src={doctorLogo} style={{width: '500px'}} size='small' />,
+				style: {overflowWrap: 'break-word'}
 			};
 		});
 		return <Card.Group items={items} />
 	}
 	render(){
-		// const { name } = this.state;
-
 		return (
-			<div className = 'records' style={{paddingLeft: "400px", paddingRight: "150px"}}>
+			<div  style={{paddingLeft: "400px", paddingRight: "150px"}}>
 				<div style={{padding: '0px 80px 10px 80px'}}>
 					<SearchBar category="Doctor" />
 				</div>
 				<h2 style={{color: '#012a4a', paddingBottom: '20px'}}>Doctors list</h2>
-				{this.renderList()}
+				<div>
+					{this.renderList()}
+				</div>
 			</div>
 		);
 	}

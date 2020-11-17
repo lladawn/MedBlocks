@@ -27,6 +27,7 @@ class Login extends Component {
     await medBlocks.methods.AddNewPatient(username, sex, aadharNumber, age, bmi, bloodGroup, passCode).send({from: accounts[0]});
     console.log("Doctor");
     await medBlocks.methods.AddNewDoctor(username, sex, aadharNumber, age, bmi, bloodGroup, passCode).send({from: accounts[0]});
+    alert("You are registered as a doctor and patient!")
   };
 
   handlePatient = async (event) => {
@@ -36,6 +37,7 @@ class Login extends Component {
     const accounts = await web3.eth.getAccounts();
     console.log(" Only Patient");
     await medBlocks.methods.AddNewPatient(username, sex, aadharNumber, age, bmi, bloodGroup, passCode).send({from: accounts[0]});  
+    alert("You are registered as a patient");
   };
 
   handleOpen = () => {

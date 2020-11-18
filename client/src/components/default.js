@@ -47,9 +47,8 @@ function Default() {
                 <div className="section-first" id="home">
                     <div className="content">
                         <h1>Control Your Health Records</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda unde ad rerum doloribus nisi quam
-                        quos esse, fugit tempore nemo facilis nobis? Qui illum, deserunt assumenda saepe rerum reiciendis
-                        explicabo ducimus modi, ea quidem libero hic dolorem magni repudiandae. Impedit.</p>
+                        <p>Provides secure,tamper proof and a shareable method of storage of medical
+records.(thus solving the major drawbacks of paper-based records).</p>
                         
                         <Modal value="Get Started" />
                     </div>
@@ -72,11 +71,8 @@ function Default() {
                         <div className="box-main1">
                             <div className="content1">
                                 <h2>NOT IN MEDBLOCKS!</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis quam asperiores, a, veniam
-                                eligendi explicabo sequi laboriosam impedit dicta obcaecati tenetur animi reiciendis dolor
-                                quae saepe inventore, consequatur repellendus ut?Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit. Quod magnam, molestias animi, sed adipisci ratione culpa rerum odit a quia
-                    illo vero recusandae praesentium explicabo! Harum, autem quam! Nesciunt.</p>
+                               <p>Shifts the authority of patient data from the hospitals and other organisations to the
+patients themselves thus help make data an asset to the patient.</p>
                             </div>
                             <img src={f1main} alt="" />
                         </div>

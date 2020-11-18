@@ -16,27 +16,28 @@ class Record extends Component{
 	}
 	
 	records = async () => {
-		// const accounts = await web3.eth.getAccounts();
-		const meetingIdArray = await medBlocks.methods.getMeetingIds(this.props.patientAddress).call();
-		// 	const meetingIdArray = await medBlocks.methods.getMeetingIds(this.props.match.params.patientAddress).call();
-		const count = meetingIdArray.length;
-		// const count = await medBlocks.methods.getMeetingCount().call();
+		const count = await medBlocks.methods.getMeetingCount().call();
 		let meetingArray = [];
 		for(let i=0;i<count;i++){
 			const details = await medBlocks.methods.getMeetingInfo(i).call();
         	const ipfsHash = await medBlocks.methods.getMeetingReportHash(i).call();
-        	const doctorAddress = details[3];
+			const doctorAddress = details[3];
+			const patientAddress = details[2];
+			// const meetingID = details[5];
         	const doctordetails = await medBlocks.methods.getPatientInfo1(doctorAddress).call();
-        	const doctor = doctordetails[1];
-			meetingArray.push({
-			doctor,
-			disease: details[0],
-			medicine: details[1],
-			expense: details[4],
-			meetingid: details[5],
-			ipfsHash,
-			IsDelegatedPatient: details[6]
-		})
+			const doctor = doctordetails[1];
+			if(patientAddress === this.props.patientAddress){
+				meetingArray.push({
+				doctor,
+				disease: details[0],
+				medicine: details[1],
+				expense: details[4],
+				meetingid: details[5],
+				ipfsHash,
+				IsDelegatedPatient: details[6]
+			})
+			}
+		
 		}
 		
 		this.setState({
